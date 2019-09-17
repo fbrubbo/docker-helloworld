@@ -1,0 +1,14 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: Build
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/docker-helloworld'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/docker-helloworld:v$SHORT_SHA'
+
+images:
+- 'gcr.io/$PROJECT_ID/docker-helloworld'
+- 'gcr.io/$PROJECT_ID/docker-helloworld:v$SHORT_SHA'
